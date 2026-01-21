@@ -1,0 +1,175 @@
+%-------------------------
+% Resume in LaTeX
+% Author: Dylan Connolly
+% Compiled with: pdflatex connolly-resume.tex
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.92]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=0.4in, top=0.3in, bottom=0.3in]{geometry}
+
+% you will need to run mpm --install fontawesome5 for this document to compile
+\usepackage{fontawesome5}
+
+% icon commands
+\newcommand{\iconEnvelope}{\faEnvelope\ }
+\newcommand{\iconPhone}{\faPhone\ }
+\newcommand{\iconGlobe}{\faGlobe\ }
+\newcommand{\iconGithub}{\faGithub\ }
+\newcommand{\iconLinkedin}{\faLinkedin\ }
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+% colors
+\definecolor{linkblue}{RGB}{0,51,102}
+
+% hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkblue,
+    urlcolor=linkblue,
+    pdfborder={0 0 0}
+}
+
+% remove page numbers
+\pagestyle{empty}
+
+% section formatting
+\titleformat{\section}
+    {\large\bfseries\uppercase}
+    {}
+    {0em}
+    {}
+    [\titlerule]
+
+\titlespacing*{\section}{0pt}{4pt}{2pt}
+
+% custom commands
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+\newcommand{\resumeSubheading}[4]{
+    \item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \small{#2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+% list settings
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=12pt, topsep=0pt, itemsep=-2pt, label=$\bullet$]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\LARGE \textbf{Dylan Connolly}} \\[4pt]
+    Tallahassee, FL \enspace$|$\enspace 
+    \iconEnvelope\href{mailto:dylan.t.con@gmail.com}{dylan.t.con@gmail.com} \enspace$|$\enspace 
+    \iconPhone(850) 376-8268 \\[2pt]
+    \iconGlobe\href{https://dconn.dev}{dconn.dev} \enspace$|$\enspace
+    \iconGithub\href{https://github.com/dylantcon}{github.com/dylantcon} \enspace$|$\enspace
+    \iconLinkedin\href{https://linkedin.com/in/dylantcon}{linkedin.com/in/dylantcon}
+\end{center}
+
+%----------SUMMARY----------
+\section{Summary}
+Software engineer with experience in full-stack development, systems programming, and compiler construction. Proficient in C, C\#, Python, Java, and JavaScript/TypeScript. Built an EMR platform with REST API and RBAC, a Lisp compiler with optimization passes, and Linux kernel modules. Skilled with relational databases (PostgreSQL, SQLite), web frameworks (Django, ASP.NET Core, React), and DevOps tools (Git, Linux, NGINX). Strong foundation in data structures, algorithms, OOP, software design patterns, version control, debugging, and Agile development practices.
+
+%----------EDUCATION----------
+\section{Education}
+
+\resumeSubHeadingListStart
+    \resumeSubheading
+        {Florida State University}{Tallahassee, FL}
+        {Bachelor of Science in Computer Science, Minor in Physics}{Expected May 2026}
+    \resumeItemListStart
+        \resumeItem{GPA: 3.89/4.0 \enspace$\cdot$\enspace President's List: Spring 2025, Fall 2025}
+        \resumeItem{Relevant Coursework: Operating Systems, Compiler Construction, Database Systems, Parallel \& Distributed Computing, Software Engineering, Full-Stack Development, Theory of Computation}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%----------EXPERIENCE----------
+\section{Experience}
+
+\resumeSubHeadingListStart
+    \resumeSubheading
+        {Software Engineering Intern}{Summer 2025}
+        {Hanku (formerly CoderOgres)}{Tallahassee, FL}
+    \resumeItemListStart
+        \resumeItem{Developed internal tooling for programmatic PowerPoint generation by reverse-engineering the OOXML standard, including undocumented animation and styling specifications, accelerating curriculum production workflows.}
+        \resumeItem{Engineered and shipped a text-to-speech pipeline using \texttt{chatterbox-tts} and a custom markup language, generating lecture audio locally via open-source AI models and eliminating dependency on external TTS services.}
+        \resumeItem{Built \href{https://github.com/dylantcon/pydis}{PyDis}, a Python bytecode disassembler with side-by-side execution visualization, variable inspection, and I/O tracing for student debugging and educational demonstrations.}
+        \resumeItem{Led curriculum development for web development modules (HTML, CSS, JavaScript) and taught introductory Python and game development courses to students ages 12--16.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%----------PROJECTS----------
+\section{Projects}
+
+\resumeSubHeadingListStart
+
+    \resumeProjectHeading
+        {\href{https://github.com/dylantcon/clinicore}{CliniCore} $\vert$ \emph{C\#, ASP.NET Core, Entity Framework, SQLite, .NET MAUI}}{Fall 2025}
+    \resumeItemListStart
+        \resumeItem{Architected EMR and practice management system with patient records, scheduling, clinical documentation, and prescription tracking across GUI and CLI interfaces.}
+        \resumeItem{Implemented command pattern (CommandFactory, CommandInvoker) for unified state manipulation and undo/redo; designed medium-agnostic persistence layer supporting SQLite, in-memory, and REST API backends.}
+        \resumeItem{Built complete REST API with role-based access control (RBAC) for all domain models; automated documentation with DocFX and GitHub Actions.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+        {\href{https://github.com/dylantcon/compiler-project}{Lisp Compiler} $\vert$ \emph{C, Lex/Flex, Yacc/Bison, GraphViz}}{Fall 2025}
+    \resumeItemListStart
+        \resumeItem{Built a complete compiler frontend for a Lisp-like language: lexical analysis, recursive descent parsing, AST generation, semantic analysis, and intermediate representation with control flow graph generation.}
+        \resumeItem{Implemented optimization passes and generated DOT output for CFG visualization via GraphViz.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+        {Operating Systems Projects $\vert$ \emph{C, Linux Kernel API}}{Fall 2025}
+    \resumeItemListStart
+        \resumeItem{Developed a custom Unix shell with job control, I/O redirection, piping, and signal handling.}
+        \resumeItem{Built a Linux kernel module for elevator scheduling with mutex synchronization, \texttt{/proc} filesystem interface, and configurable dispatch algorithms handling concurrent floor requests.}
+        \resumeItem{Implemented a FAT32 filesystem utility for volume inspection, directory traversal, and file extraction.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+        {\href{https://github.com/dylantcon/countertrak}{CounterTrak} $\vert$ \emph{Python, Django, PostgreSQL, JavaScript}}{Spring 2025}
+    \resumeItemListStart
+        \resumeItem{Built real-time statistics tracking service for Counter-Strike 2 using Valve's Game State Integration API, capturing match data and rendering performance analytics via Django web interface.}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+        {\href{https://github.com/dylantcon/sysconf}{Sysconf} $\vert$ \emph{Python, TOML, Jinja2, NGINX, Certbot, Systemd}}{2026}
+    \resumeItemListStart
+        \resumeItem{Built idempotent Linux configuration tool: cross-distro package management, dotfile deployment, SSH hardening, Tailscale VPN, and automated web app deployment with NGINX and Let's Encrypt.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%----------SKILLS----------
+\section{Skills}
+
+\begin{itemize}[leftmargin=0pt, label={}, itemsep=-3pt]
+    \item \textbf{Languages:} C, C++, C\#, Python, Java, JavaScript, TypeScript, SQL, Go, Lua, HTML, CSS, Bash
+    \item \textbf{Frameworks:} ASP.NET Core, .NET MAUI, Entity Framework, Django, Flask, React, Node.js, Tailwind CSS
+    \item \textbf{Databases \& Tools:} PostgreSQL, SQLite, SQL Server, Git, GitHub, Linux, NGINX, Make, GDB, Valgrind, SSH
+    \item \textbf{Concepts:} OOP, Data Structures, Algorithms, REST APIs, Design Patterns, Agile, Unit Testing, CI/CD
+\end{itemize}
+
+%-------------------------------------------
+\end{document}
