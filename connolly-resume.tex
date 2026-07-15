@@ -106,7 +106,7 @@ Software engineer with experience in full-stack development, systems programming
         {Florida State University}{Tallahassee, FL}
         {Bachelor of Science in Computer Science, Minor in Physics, Magna Cum Laude}{July 2026}
     \resumeItemListStart
-        \resumeItem{GPA: 3.89/4.0 \enspace$\cdot$\enspace President's List: Spring 2025, Fall 2025}
+        \resumeItem{GPA: 3.89/4.0 \enspace$\cdot$\enspace President's List: Spring 2025, Fall 2025 \enspace$\cdot$\enspace Dean's List: Fall 2023, Spring 2024, Spring 2026}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -118,8 +118,8 @@ Software engineer with experience in full-stack development, systems programming
         {Software Engineering Intern}{Summer 2025}
         {Hanku (formerly CoderOgres)}{Tallahassee, FL}
     \resumeItemListStart
-        \resumeItem{Developed Excudo for use as an internal tool for programmatic PowerPoint generation by reverse-engineering the OOXML standard, including undocumented animation and styling specifications, cutting slide-deck production time by \textbf{32\%} to accelerate curriculum workflows.}
-        \resumeItem{Engineered a text-to-speech pipeline using \texttt{chatterbox-tts} and a custom markup language, generating lecture audio locally via open-source models and removing dependence on external TTS services.}
+        \resumeItem{Developed Excudo as an internal tool for programmatic PowerPoint generation by reverse-engineering the OOXML standard, including undocumented animation and styling specifications, cutting slide-deck production time by \textbf{32\%} to accelerate curriculum workflows.}
+        \resumeItem{Engineered a text-to-speech pipeline using \texttt{chatterbox-tts} and a custom markup language, generating lecture audio locally and replacing a commercial TTS service billed at roughly \$11 per hour of narration.}
         \resumeItem{Built \href{https://github.com/dylantcon/pydis}{PyDis}, a Python bytecode disassembler with side-by-side execution visualization, variable inspection, and I/O tracing for student debugging.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
@@ -153,9 +153,9 @@ Software engineer with experience in full-stack development, systems programming
     \resumeItemListEnd
 
     \resumeProjectHeading
-        {\href{https://github.com/dylantcon/countertrak}{CounterTrak} $\vert$ \emph{Python, asyncio, aiohttp, Django, PostgreSQL}}{Spring 2025}
+        {\href{https://github.com/dylantcon/countertrak}{CounterTrak} $\vert$ \emph{Python, asyncio, aiohttp, Django, PostgreSQL, Docker}}{Spring 2025}
     \resumeItemListStart
-        \resumeItem{Built a fully asynchronous ingestion server with \texttt{asyncio} and \texttt{aiohttp} that consumes Valve's Game State Integration payloads from many concurrent Counter-Strike 2 clients, persisting up to ten snapshots per second per player into PostgreSQL.}
+        \resumeItem{Built a fully asynchronous \texttt{asyncio}/\texttt{aiohttp} ingestion server consuming Valve's Game State Integration payloads from many concurrent Counter-Strike 2 clients into PostgreSQL at up to ten snapshots per second per player; containerized it alongside the Django app as a two-service Docker Compose stack with production/demo parity and secrets kept out of the image.}
         \resumeItem{Designed a multi-tenant account system: users register and link Steam accounts through a Django interface, each issued a unique auth token embedded in a client-side GSI config that authenticates every payload against an in-memory token cache.}
         \resumeItem{Engineered a kill-attribution engine inferring per-weapon kills from game-state deltas, and computed player analytics over a BCNF-normalized schema using SQL window functions (\texttt{PERCENT\_RANK}, \texttt{LAG}) for percentile ranking and round-economy trends.}
     \resumeItemListEnd
