@@ -49,29 +49,36 @@
     {}
     [\titlerule]
 
-\titlespacing*{\section}{0pt}{4pt}{2pt}
+\titlespacing*{\section}{0pt}{5pt}{3pt}
 
 % custom commands
-\newcommand{\resumeItem}[1]{\item\small{#1}}
+\newcommand{\resumeItem}[1]{\item{\small\linespread{0.90}\selectfont #1\par}}
 \newcommand{\resumeSubheading}[4]{
     \item
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r@{}}
         \textbf{#1} & #2 \\
         \textit{#3} & \textit{#4} \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}\vspace{-4pt}
 }
 \newcommand{\resumeProjectHeading}[2]{
     \item
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r@{}}
         \textbf{#1} & \small{#2} \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 % list settings
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=12pt, topsep=0pt, itemsep=-2pt, label=$\bullet$]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=12pt, topsep=0pt, itemsep=0pt, label=$\bullet$]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
+
+% assert one page -- pdflatex exits non-zero if the resume grows past a page
+\AtEndDocument{%
+    \ifnum\value{page}>1
+        \errmessage{ASSERT FAILED: resume is \thepage\space pages, expected 1}%
+    \fi
+}
 
 %-------------------------------------------
 \begin{document}
@@ -79,8 +86,8 @@
 %----------HEADING----------
 \begin{center}
     {\LARGE \textbf{Dylan Connolly}} \\[4pt]
-    Tallahassee, FL \enspace$|$\enspace 
-    \iconEnvelope\href{mailto:dylan.t.con@gmail.com}{dylan.t.con@gmail.com} \enspace$|$\enspace 
+    Tallahassee, FL \enspace$|$\enspace
+    \iconEnvelope\href{mailto:dylan.t.con@gmail.com}{dylan.t.con@gmail.com} \enspace$|$\enspace
     \iconPhone(850) 376-8268 \\[2pt]
     \iconGlobe\href{https://dconn.dev}{dconn.dev} \enspace$|$\enspace
     \iconGithub\href{https://github.com/dylantcon}{github.com/dylantcon} \enspace$|$\enspace
@@ -89,7 +96,7 @@
 
 %----------SUMMARY----------
 \section{Summary}
-Software engineer with experience in full-stack development, systems programming, and compiler construction. Proficient in C, C\#, Python, Java, and JavaScript/TypeScript. Built an EMR platform with REST API and RBAC, a Lisp compiler with optimization passes, and Linux kernel modules. Skilled with relational databases (PostgreSQL, SQLite), web frameworks (Django, ASP.NET Core, React), and DevOps tools (Git, Linux, NGINX). Strong foundation in data structures, algorithms, OOP, software design patterns, version control, debugging, and Agile development practices.
+Software engineer with experience in full-stack development, systems programming, and compiler construction. Proficient in C, C\#, Python, Java, and JavaScript/TypeScript. Built an EMR platform with REST API and RBAC, an OOXML presentation editor with a parity-tested rendering engine, a Lisp compiler with optimization passes, and Linux kernel modules. Skilled with relational databases (PostgreSQL, SQLite), web frameworks (Django, ASP.NET Core, React), and DevOps tools (Git, Linux).
 
 %----------EDUCATION----------
 \section{Education}
@@ -97,10 +104,9 @@ Software engineer with experience in full-stack development, systems programming
 \resumeSubHeadingListStart
     \resumeSubheading
         {Florida State University}{Tallahassee, FL}
-        {Bachelor of Science in Computer Science, Minor in Physics}{Expected July 2026}
+        {Bachelor of Science in Computer Science, Minor in Physics, Magna Cum Laude}{July 2026}
     \resumeItemListStart
         \resumeItem{GPA: 3.89/4.0 \enspace$\cdot$\enspace President's List: Spring 2025, Fall 2025}
-        \resumeItem{Relevant Coursework: Operating Systems, Compiler Construction, Database Systems, Parallel \& Distributed Computing, Software Engineering, Full-Stack Development, Theory of Computation}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -112,10 +118,9 @@ Software engineer with experience in full-stack development, systems programming
         {Software Engineering Intern}{Summer 2025}
         {Hanku (formerly CoderOgres)}{Tallahassee, FL}
     \resumeItemListStart
-        \resumeItem{Developed internal tooling for programmatic PowerPoint generation by reverse-engineering the OOXML standard, including undocumented animation and styling specifications, accelerating curriculum production workflows.}
-        \resumeItem{Engineered and shipped a text-to-speech pipeline using \texttt{chatterbox-tts} and a custom markup language, generating lecture audio locally via open-source AI models and eliminating dependency on external TTS services.}
-        \resumeItem{Built \href{https://github.com/dylantcon/pydis}{PyDis}, a Python bytecode disassembler with side-by-side execution visualization, variable inspection, and I/O tracing for student debugging and educational demonstrations.}
-        \resumeItem{Led curriculum development for web development modules (HTML, CSS, JavaScript) and taught introductory Python and game development courses to students ages 12--16.}
+        \resumeItem{Developed Excudo for use as an internal tool for programmatic PowerPoint generation by reverse-engineering the OOXML standard, including undocumented animation and styling specifications, cutting slide-deck production time by \textbf{32\%} to accelerate curriculum workflows.}
+        \resumeItem{Engineered a text-to-speech pipeline using \texttt{chatterbox-tts} and a custom markup language, generating lecture audio locally via open-source models and removing dependence on external TTS services.}
+        \resumeItem{Built \href{https://github.com/dylantcon/pydis}{PyDis}, a Python bytecode disassembler with side-by-side execution visualization, variable inspection, and I/O tracing for student debugging.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -123,6 +128,14 @@ Software engineer with experience in full-stack development, systems programming
 \section{Projects}
 
 \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+        {\href{https://github.com/dylantcon/excudo}{Excudo} $\vert$ \emph{Java 21, JavaFX, OOXML, Model Context Protocol, Python}}{Summer 2025 -- Present}
+    \resumeItemListStart
+        \resumeItem{Built a desktop presentation editor from scratch that reads and writes PowerPoint's native OOXML, evaluating the ECMA-376 guide formulas for all 187 preset shapes and calibrating text layout against PowerPoint's own PDF output.}
+        \resumeItem{Verified rendering fidelity with an automated parity harness that scores every slide against a ground-truth PowerPoint corpus via SSIM, enforcing per-category thresholds and regression-ratcheting baselines in cross-platform CI.}
+        \resumeItem{Replaced the traditional in-memory undo stack with a persistent per-slide command DAG that reconstructs edit history across restarts, and exposed the editor as an MCP server so an LLM client can inspect and edit live decks.}
+    \resumeItemListEnd
 
     \resumeProjectHeading
         {\href{https://github.com/dylantcon/clinicore}{CliniCore} $\vert$ \emph{C\#, ASP.NET Core, Entity Framework, SQLite, .NET MAUI}}{Fall 2025}
@@ -140,23 +153,17 @@ Software engineer with experience in full-stack development, systems programming
     \resumeItemListEnd
 
     \resumeProjectHeading
-        {Operating Systems Projects $\vert$ \emph{C, Linux Kernel API}}{Fall 2025}
+        {\href{https://github.com/dylantcon/countertrak}{CounterTrak} $\vert$ \emph{Python, asyncio, aiohttp, Django, PostgreSQL}}{Spring 2025}
     \resumeItemListStart
-        \resumeItem{Developed a custom Unix shell with job control, I/O redirection, piping, and signal handling.}
-        \resumeItem{Built a Linux kernel module for elevator scheduling with mutex synchronization, \texttt{/proc} filesystem interface, and configurable dispatch algorithms handling concurrent floor requests.}
-        \resumeItem{Implemented a FAT32 filesystem utility for volume inspection, directory traversal, and file extraction.}
-    \resumeItemListEnd
-
-    \resumeProjectHeading
-        {\href{https://github.com/dylantcon/countertrak}{CounterTrak} $\vert$ \emph{Python, Django, PostgreSQL, JavaScript}}{Spring 2025}
-    \resumeItemListStart
-        \resumeItem{Built real-time statistics tracking service for Counter-Strike 2 using Valve's Game State Integration API, capturing match data and rendering performance analytics via Django web interface.}
+        \resumeItem{Built a fully asynchronous ingestion server with \texttt{asyncio} and \texttt{aiohttp} that consumes Valve's Game State Integration payloads from many concurrent Counter-Strike 2 clients, persisting up to ten snapshots per second per player into PostgreSQL.}
+        \resumeItem{Designed a multi-tenant account system: users register and link Steam accounts through a Django interface, each issued a unique auth token embedded in a client-side GSI config that authenticates every payload against an in-memory token cache.}
+        \resumeItem{Engineered a kill-attribution engine inferring per-weapon kills from game-state deltas, and computed player analytics over a BCNF-normalized schema using SQL window functions (\texttt{PERCENT\_RANK}, \texttt{LAG}) for percentile ranking and round-economy trends.}
     \resumeItemListEnd
 
     \resumeProjectHeading
         {\href{https://github.com/dylantcon/sysconf}{Sysconf} $\vert$ \emph{Python, TOML, Jinja2, NGINX, Certbot, Systemd}}{2026}
     \resumeItemListStart
-        \resumeItem{Built idempotent Linux configuration tool: cross-distro package management, dotfile deployment, SSH hardening, Tailscale VPN, and automated web app deployment with NGINX and Let's Encrypt.}
+        \resumeItem{Built an idempotent Linux provisioning tool: cross-distro package management, dotfile deployment, SSH hardening, Tailscale VPN, and automated NGINX + Let's Encrypt web-app deployment.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
